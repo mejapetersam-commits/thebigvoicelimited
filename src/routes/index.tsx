@@ -87,7 +87,7 @@ function Index() {
             Make your brand <span className="text-amber-400">heard</span>, understood and remembered.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-neutral-300">
-            The Big Voice Ltd is a communication-driven audio production company specialising in voice, sound and podcasts — turning ideas into clear, compelling, impactful audio.
+            The Big Voice Ltd is a communication-driven audio production company specialising in voice, sound and podcasts, turning ideas into clear, compelling, impactful audio.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <a href="#services" className="inline-flex items-center gap-2 rounded-full bg-amber-500 text-neutral-950 px-6 py-3 font-medium hover:bg-amber-400 transition">
@@ -116,7 +116,7 @@ function Index() {
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
               <p className="text-amber-400 text-sm font-medium tracking-wide">VISION</p>
               <p className="mt-3 text-neutral-200 leading-relaxed">
-                To become a leading voice in Africa's communication and audio production industry — setting the standard for how brands connect, engage and influence through sound.
+                To become a leading voice in Africa's communication and audio production industry, setting the standard for how brands connect, engage and influence through sound.
               </p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
@@ -205,7 +205,7 @@ function Index() {
           </div>
           <blockquote className="mt-20 max-w-3xl mx-auto">
             <p className="text-2xl sm:text-3xl font-medium leading-snug">
-              "We deliver <span className="text-amber-400">clarity, confidence and connection</span> — so your message creates real impact."
+              "We deliver <span className="text-amber-400">clarity, confidence and connection</span>, so your message creates real impact."
             </p>
             <footer className="mt-4 text-sm text-neutral-400">— Our Promise</footer>
           </blockquote>
