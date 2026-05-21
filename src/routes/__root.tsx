@@ -76,10 +76,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "The Big Voice Ltd is a Kenyan audio production company crafting voiceovers, event sound and podcasts that make brands heard, understood and remembered." },
       { name: "author", content: "The Big Voice Ltd" },
       { property: "og:title", content: "The Big Voice Ltd — Voice, Sound & Podcast Production" },
-      { property: "og:description", content: "Voice & audio production, event sound and podcast production for brands across Africa." },
+      { property: "og:description", content: "The Big Voice Ltd is a Kenyan audio production company crafting voiceovers, event sound and podcasts that make brands heard, understood and remembered." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "The Big Voice Ltd — Voice, Sound & Podcast Production" },
+      { name: "twitter:description", content: "The Big Voice Ltd is a Kenyan audio production company crafting voiceovers, event sound and podcasts that make brands heard, understood and remembered." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/a7a15dba-8a9d-4cfd-a989-73332cf51024" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/a7a15dba-8a9d-4cfd-a989-73332cf51024" },
     ],
     links: [
       {
