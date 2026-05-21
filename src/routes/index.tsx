@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Mic, Speaker, Headphones, Phone, Mail, Globe, Instagram, ArrowRight, CheckCircle2 } from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import console from "@/assets/console.jpg";
-import event from "@/assets/event.jpg";
-import podcast from "@/assets/podcast.jpg";
+import consoleImg from "@/assets/console.jpg";
+import eventImg from "@/assets/event.jpg";
+import podcastImg from "@/assets/podcast.jpg";
 import logo from "@/assets/logo.jpg";
 
 export const Route = createFileRoute("/")({
@@ -14,7 +14,7 @@ const services = [
   {
     icon: Mic,
     title: "Voice & Audio Production",
-    image: console,
+    image: consoleImg,
     items: [
       "Advertising & commercials",
       "Corporate communication",
@@ -25,7 +25,7 @@ const services = [
   {
     icon: Speaker,
     title: "Event Sound & Experience",
-    image: event,
+    image: eventImg,
     items: [
       "Professional public address systems",
       "Corporate event audio solutions",
@@ -36,7 +36,7 @@ const services = [
   {
     icon: Headphones,
     title: "Podcast Production",
-    image: podcast,
+    image: podcastImg,
     items: [
       "Recording & production",
       "Editing & sound design",
