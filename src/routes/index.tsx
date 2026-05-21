@@ -51,7 +51,7 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-gold/30">
       {/* Nav */}
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-black/5">
+      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-2">
             <img src={logo} alt="The Big Voice Ltd" className="h-9 w-9 rounded-full object-cover ring-1 ring-gold/40" />
@@ -65,7 +65,7 @@ function Index() {
             <a href="#clients" className="hover:text-gold transition">Clients</a>
             <a href="#contact" className="hover:text-gold transition">Contact</a>
           </nav>
-          <a href="#contact" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gold text-white px-4 py-2 text-sm font-medium hover:bg-gold/90 transition">
+          <a href="#contact" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gold text-background px-4 py-2 text-sm font-medium hover:bg-gold/90 transition">
             Start a project <ArrowRight className="size-4" />
           </a>
         </div>
@@ -90,10 +90,10 @@ function Index() {
             The Big Voice Ltd is a communication-driven audio production company specialising in voice, sound and podcasts, turning ideas into clear, compelling, impactful audio.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href="#services" className="inline-flex items-center gap-2 rounded-full bg-gold text-white px-6 py-3 font-medium hover:bg-gold/90 transition">
+            <a href="#services" className="inline-flex items-center gap-2 rounded-full bg-gold text-background px-6 py-3 font-medium hover:bg-gold/90 transition">
               Explore our work <ArrowRight className="size-4" />
             </a>
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-full border border-black/15 px-6 py-3 font-medium hover:bg-black/5 transition">
+            <a href="#contact" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 font-medium hover:bg-white/5 transition">
               Get in touch
             </a>
           </div>
@@ -101,7 +101,7 @@ function Index() {
       </section>
 
       {/* About */}
-      <section id="about" className="py-24 border-t border-black/5">
+      <section id="about" className="py-24 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
           <div>
             <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">About</p>
@@ -113,13 +113,13 @@ function Index() {
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-black/10 bg-card p-6 shadow-sm">
+            <div className="rounded-2xl border border-white/10 bg-card p-6 shadow-sm">
               <p className="text-gold text-sm font-medium tracking-wide">VISION</p>
               <p className="mt-3 text-foreground leading-relaxed">
                 To become a leading voice in Africa's communication and audio production industry, setting the standard for how brands connect, engage and influence through sound.
               </p>
             </div>
-            <div className="rounded-2xl border border-black/10 bg-card p-6 shadow-sm">
+            <div className="rounded-2xl border border-white/10 bg-card p-6 shadow-sm">
               <p className="text-gold text-sm font-medium tracking-wide">MISSION</p>
               <p className="mt-3 text-foreground leading-relaxed">
                 To elevate communication through powerful voice and sound, helping brands deliver messages that are clear, engaging and impactful.
@@ -130,7 +130,7 @@ function Index() {
       </section>
 
       {/* Problem / Solution */}
-      <section className="py-24 border-t border-black/5 bg-gradient-to-b from-background to-blueish-muted/40">
+      <section className="py-24 border-t border-white/5 bg-gradient-to-b from-background to-blueish-muted/40">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
           <div>
             <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">The problem we solve</p>
@@ -154,7 +154,7 @@ function Index() {
       </section>
 
       {/* Services */}
-      <section id="services" className="py-24 border-t border-black/5">
+      <section id="services" className="py-24 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
             <div>
@@ -167,7 +167,7 @@ function Index() {
             {services.map(s => {
               const Icon = s.icon;
               return (
-                <article key={s.title} className="group rounded-2xl overflow-hidden border border-black/10 bg-card hover:border-gold/40 transition shadow-sm">
+                <article key={s.title} className="group rounded-2xl overflow-hidden border border-white/10 bg-card hover:border-gold/40 transition shadow-sm">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img src={s.image} alt={s.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
                   </div>
@@ -192,13 +192,13 @@ function Index() {
       </section>
 
       {/* Clients */}
-      <section id="clients" className="py-24 border-t border-black/5">
+      <section id="clients" className="py-24 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Trusted by</p>
           <h2 className="text-3xl sm:text-4xl font-bold">Brands we've given a voice</h2>
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {clients.map(c => (
-              <div key={c} className="rounded-xl border border-black/10 bg-card py-8 px-4 text-muted-foreground font-semibold tracking-wider shadow-sm">
+              <div key={c} className="rounded-xl border border-white/10 bg-card py-8 px-4 text-muted-foreground font-semibold tracking-wider shadow-sm">
                 {c}
               </div>
             ))}
@@ -213,33 +213,33 @@ function Index() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24 border-t border-black/5 bg-gradient-to-b from-blueish-muted/40 to-background">
+      <section id="contact" className="py-24 border-t border-white/5 bg-gradient-to-b from-blueish-muted/40 to-background">
         <div className="max-w-5xl mx-auto px-6">
           <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Get in touch</p>
           <h2 className="text-4xl sm:text-5xl font-bold max-w-3xl">Let's make your next message impossible to ignore.</h2>
           <div className="mt-12 grid sm:grid-cols-2 gap-4">
-            <a href="tel:+254717003755" className="flex items-center gap-4 rounded-2xl border border-black/10 bg-card p-5 hover:border-gold/40 transition shadow-sm">
+            <a href="tel:+254717003755" className="flex items-center gap-4 rounded-2xl border border-white/10 bg-card p-5 hover:border-gold/40 transition shadow-sm">
               <Phone className="size-5 text-gold" />
               <div>
                 <p className="text-xs text-muted-foreground">Phone</p>
                 <p className="font-medium">+254 717 003 755</p>
               </div>
             </a>
-            <a href="mailto:thebigvoicelimited@gmail.com" className="flex items-center gap-4 rounded-2xl border border-black/10 bg-card p-5 hover:border-gold/40 transition shadow-sm">
+            <a href="mailto:thebigvoicelimited@gmail.com" className="flex items-center gap-4 rounded-2xl border border-white/10 bg-card p-5 hover:border-gold/40 transition shadow-sm">
               <Mail className="size-5 text-gold" />
               <div>
                 <p className="text-xs text-muted-foreground">Email</p>
                 <p className="font-medium break-all">thebigvoicelimited@gmail.com</p>
               </div>
             </a>
-            <a href="https://www.thebigvoiceltd.com" className="flex items-center gap-4 rounded-2xl border border-black/10 bg-card p-5 hover:border-gold/40 transition shadow-sm">
+            <a href="https://www.thebigvoiceltd.com" className="flex items-center gap-4 rounded-2xl border border-white/10 bg-card p-5 hover:border-gold/40 transition shadow-sm">
               <Globe className="size-5 text-gold" />
               <div>
                 <p className="text-xs text-muted-foreground">Website</p>
                 <p className="font-medium">www.thebigvoiceltd.com</p>
               </div>
             </a>
-            <a href="https://instagram.com/thebigvoiceltd" className="flex items-center gap-4 rounded-2xl border border-black/10 bg-card p-5 hover:border-gold/40 transition shadow-sm">
+            <a href="https://instagram.com/thebigvoiceltd" className="flex items-center gap-4 rounded-2xl border border-white/10 bg-card p-5 hover:border-gold/40 transition shadow-sm">
               <Instagram className="size-5 text-gold" />
               <div>
                 <p className="text-xs text-muted-foreground">Social</p>
@@ -250,7 +250,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-black/5 py-10">
+      <footer className="border-t border-white/5 py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} The Big Voice Ltd. All rights reserved.</p>
           <p>Voice · Sound · Podcasts</p>
