@@ -5,7 +5,7 @@ import consoleImg from "@/assets/console.jpg";
 import eventImg from "@/assets/event.jpg";
 import podcastImg from "@/assets/podcast.jpg";
 import logo from "@/assets/logo.jpg";
-import lgLogo from "@/assets/clients/lg.svg";
+import lgLogo from "@/assets/clients/lg.webp";
 import cellulantLogo from "@/assets/clients/cellulant.webp";
 import blazeLogo from "@/assets/clients/blaze.png";
 import maybetsLogo from "@/assets/clients/maybets.jpg";
@@ -209,12 +209,12 @@ function Index() {
           <h2 className="text-3xl sm:text-4xl font-bold">Brands we've given a voice</h2>
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {clients.map(c => (
-              <div key={c.name} className="rounded-xl border border-white/10 bg-white/[0.03] py-8 px-4 flex items-center justify-center h-28">
+              <div key={c.name} className="rounded-xl border border-white/10 bg-white py-6 px-4 flex items-center justify-center h-28">
                 <img
                   src={c.logo}
                   alt={`${c.name} logo`}
                   loading="lazy"
-                  className="max-h-12 max-w-full object-contain brightness-0 invert opacity-80 hover:opacity-100 transition"
+                  className="max-h-14 max-w-full object-contain"
                 />
               </div>
             ))}
