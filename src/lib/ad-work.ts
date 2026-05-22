@@ -1,5 +1,5 @@
 import samsungCover from "@/assets/ads/samsung-cover.jpg";
-import britamCover from "@/assets/ads/britam-cover.jpg";
+import britamCover from "@/assets/ads/britam-cover.png";
 
 export type AdWorkItem = {
   type: "audio" | "video";
