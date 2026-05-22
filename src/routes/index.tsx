@@ -84,6 +84,7 @@ function Index() {
           <nav className="hidden md:flex items-center gap-8 text-sm text-neutral-300">
             <a href="#about" className="hover:text-amber-400 transition">About</a>
             <a href="#services" className="hover:text-amber-400 transition">Services</a>
+            <a href="#work" className="hover:text-amber-400 transition">Work</a>
             <a href="#clients" className="hover:text-amber-400 transition">Clients</a>
             <a href="#contact" className="hover:text-amber-400 transition">Contact</a>
           </nav>
