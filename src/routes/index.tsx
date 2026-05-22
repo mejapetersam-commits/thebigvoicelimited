@@ -10,6 +10,8 @@ import cellulantLogo from "@/assets/clients/cellulant.webp";
 import blazeLogo from "@/assets/clients/blaze.png";
 import maybetsLogo from "@/assets/clients/maybets.jpg";
 import startimesLogo from "@/assets/clients/startimes.png";
+import samsungCover from "@/assets/ads/samsung-cover.jpg";
+import britamCover from "@/assets/ads/britam-cover.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -58,6 +60,15 @@ const clients = [
   { name: "StarTimes", logo: startimesLogo },
 ];
 
+const adWork = [
+  { type: "audio", brand: "Samsung", title: "Galaxy A37 & A57", src: "/ads/samsung.mp3", cover: samsungCover },
+  { type: "audio", brand: "Britam", title: "Brand Spot", src: "/ads/britam.mp3", cover: britamCover },
+  { type: "video", brand: "StarTimes", title: "TV Campaign", src: "/ads/startimes.mp4" },
+  { type: "video", brand: "Maybets", title: "Promo Spot", src: "/ads/maybets.mp4" },
+  { type: "video", brand: "Kibao", title: "Brand Ad", src: "/ads/kibao.mp4" },
+  { type: "video", brand: "Mobimba", title: "Station Ident", src: "/ads/mobimba.mp4" },
+] as const;
+
 function Index() {
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans antialiased selection:bg-amber-500/30">
@@ -73,6 +84,7 @@ function Index() {
           <nav className="hidden md:flex items-center gap-8 text-sm text-neutral-300">
             <a href="#about" className="hover:text-amber-400 transition">About</a>
             <a href="#services" className="hover:text-amber-400 transition">Services</a>
+            <a href="#work" className="hover:text-amber-400 transition">Work</a>
             <a href="#clients" className="hover:text-amber-400 transition">Clients</a>
             <a href="#contact" className="hover:text-amber-400 transition">Contact</a>
           </nav>
@@ -198,6 +210,52 @@ function Index() {
                 </article>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Clients */}
+      {/* Featured Work / Ads */}
+      <section id="work" className="py-24 border-t border-white/5 bg-gradient-to-b from-neutral-950 to-neutral-900">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
+            <div>
+              <p className="uppercase tracking-[0.3em] text-xs text-amber-400 mb-4">Selected work</p>
+              <h2 className="text-4xl sm:text-5xl font-bold">Adverts we've voiced & produced</h2>
+            </div>
+            <p className="text-neutral-400 max-w-md">A taste of the campaigns, station idents and brand spots we've helped bring to life.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {adWork.map(ad => (
+              <article key={ad.brand + ad.title} className="group rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] hover:border-amber-500/40 transition">
+                {ad.type === "video" ? (
+                  <video
+                    src={ad.src}
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="w-full aspect-video object-cover bg-black"
+                  />
+                ) : (
+                  <div className="relative aspect-video bg-black">
+                    <img src={ad.cover} alt={`${ad.brand} ${ad.title}`} loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 p-4">
+                      <audio src={ad.src} controls preload="metadata" className="w-full" />
+                    </div>
+                  </div>
+                )}
+                <div className="p-5 flex items-center justify-between gap-3">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-amber-400">{ad.brand}</p>
+                    <h3 className="mt-1 font-semibold">{ad.title}</h3>
+                  </div>
+                  <span className="text-[10px] uppercase tracking-widest text-neutral-400 border border-white/10 rounded-full px-2 py-1">
+                    {ad.type === "video" ? "Video" : "Audio"}
+                  </span>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
