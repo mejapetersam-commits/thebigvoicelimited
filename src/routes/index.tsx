@@ -214,8 +214,6 @@ function Index() {
       </section>
 
       {/* Clients */}
-      <section id="clients" className="py-24 border-t border-white/5">
-
       {/* Featured Work / Ads */}
       <section id="work" className="py-24 border-t border-white/5 bg-gradient-to-b from-neutral-950 to-neutral-900">
         <div className="max-w-7xl mx-auto px-6">
@@ -262,8 +260,7 @@ function Index() {
       </section>
 
       {/* Clients */}
-      <section id="clients-old-anchor-removed" className="hidden" />
-      <section id="clients-real" className="py-24 border-t border-white/5">
+      <section id="clients" className="py-24 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="uppercase tracking-[0.3em] text-xs text-amber-400 mb-4">Trusted by</p>
           <h2 className="text-3xl sm:text-4xl font-bold">Brands we've given a voice</h2>
