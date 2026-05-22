@@ -5,6 +5,11 @@ import consoleImg from "@/assets/console.jpg";
 import eventImg from "@/assets/event.jpg";
 import podcastImg from "@/assets/podcast.jpg";
 import logo from "@/assets/logo.jpg";
+import lgLogo from "@/assets/clients/lg.svg";
+import cellulantLogo from "@/assets/clients/cellulant.webp";
+import blazeLogo from "@/assets/clients/blaze.png";
+import maybetsLogo from "@/assets/clients/maybets.jpg";
+import startimesLogo from "@/assets/clients/startimes.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -45,7 +50,13 @@ const services = [
   },
 ];
 
-const clients = ["LG", "Cellulant", "BLAZE", "Maybets", "StarTimes"];
+const clients = [
+  { name: "LG", logo: lgLogo },
+  { name: "Cellulant", logo: cellulantLogo },
+  { name: "BLAZE", logo: blazeLogo },
+  { name: "Maybets", logo: maybetsLogo },
+  { name: "StarTimes", logo: startimesLogo },
+];
 
 function Index() {
   return (
@@ -198,8 +209,13 @@ function Index() {
           <h2 className="text-3xl sm:text-4xl font-bold">Brands we've given a voice</h2>
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {clients.map(c => (
-              <div key={c} className="rounded-xl border border-white/10 bg-white/[0.03] py-8 px-4 text-neutral-300 font-semibold tracking-wider">
-                {c}
+              <div key={c.name} className="rounded-xl border border-white/10 bg-white/[0.03] py-8 px-4 flex items-center justify-center h-28">
+                <img
+                  src={c.logo}
+                  alt={`${c.name} logo`}
+                  loading="lazy"
+                  className="max-h-12 max-w-full object-contain brightness-0 invert opacity-80 hover:opacity-100 transition"
+                />
               </div>
             ))}
           </div>
