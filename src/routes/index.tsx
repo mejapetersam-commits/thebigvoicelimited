@@ -10,6 +10,8 @@ import cellulantLogo from "@/assets/clients/cellulant.webp";
 import blazeLogo from "@/assets/clients/blaze.png";
 import maybetsLogo from "@/assets/clients/maybets.jpg";
 import startimesLogo from "@/assets/clients/startimes.png";
+import samsungCover from "@/assets/ads/samsung-cover.jpg";
+import britamCover from "@/assets/ads/britam-cover.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -57,6 +59,15 @@ const clients = [
   { name: "Maybets", logo: maybetsLogo },
   { name: "StarTimes", logo: startimesLogo },
 ];
+
+const adWork = [
+  { type: "audio", brand: "Samsung", title: "Galaxy A37 & A57", src: "/ads/samsung.mp3", cover: samsungCover },
+  { type: "audio", brand: "Britam", title: "Brand Spot", src: "/ads/britam.mp3", cover: britamCover },
+  { type: "video", brand: "StarTimes", title: "TV Campaign", src: "/ads/startimes.mp4" },
+  { type: "video", brand: "Maybets", title: "Promo Spot", src: "/ads/maybets.mp4" },
+  { type: "video", brand: "Kibao", title: "Brand Ad", src: "/ads/kibao.mp4" },
+  { type: "video", brand: "Mobimba", title: "Station Ident", src: "/ads/mobimba.mp4" },
+] as const;
 
 function Index() {
   return (
