@@ -44,7 +44,7 @@ function VoiceAudioPage() {
             Adverts we've <span className="text-amber-400">voiced</span> and produced.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-neutral-300">
-            A selection of campaigns, station idents and brand spots — from corporate communications to high-energy commercials.
+            A selection of campaigns, station idents and brand spots, from corporate communications to high-energy commercials.
           </p>
         </div>
       </section>
