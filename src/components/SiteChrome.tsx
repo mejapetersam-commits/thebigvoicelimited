@@ -111,6 +111,7 @@ export function SiteFooter() {
           <p className="text-neutral-200 font-medium mb-1">Company</p>
           <Link to="/" className={col}>Home</Link>
           <Link to="/about" className={col}>About</Link>
+          <Link to="/blog" className={col}>Blog</Link>
           <Link to="/contact" className={col}>Contact</Link>
         </div>
         <div className="flex flex-col gap-2">

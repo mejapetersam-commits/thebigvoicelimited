@@ -12,7 +12,8 @@ import {
 import appCss from "../styles.css?url";
 import { SalChatWidget } from "@/components/SalChatWidget";
 import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
-import { OG_IMAGE, businessSchema, jsonLd } from "@/lib/seo";
+import { GA_MEASUREMENT_ID, OG_IMAGE, businessSchema, jsonLd } from "@/lib/seo";
+import { Analytics } from "@/components/Analytics";
 
 function NotFoundComponent() {
   return (
@@ -94,7 +95,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
-    scripts: [jsonLd(businessSchema)],
+    scripts: [
+      jsonLd(businessSchema),
+      ...(GA_MEASUREMENT_ID
+        ? [
+            { src: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`, async: true },
+            {
+              children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`,
+            },
+          ]
+        : []),
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -129,6 +140,7 @@ function RootComponent() {
         <SiteFooter />
       </div>
       <SalChatWidget />
+      <Analytics />
     </QueryClientProvider>
   );
 }

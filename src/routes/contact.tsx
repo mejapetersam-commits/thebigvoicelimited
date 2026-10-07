@@ -36,11 +36,11 @@ function ContactPage() {
               <p className="font-medium break-all">thebigvoicelimited@gmail.com</p>
             </div>
           </a>
-          <a href="https://www.thebigvoiceltd.com" className={cardClass}>
+          <a href="https://thebigvoicelimited.co.ke" className={cardClass}>
             <Globe className="size-5 text-amber-400" />
             <div>
               <p className="text-xs text-neutral-400">Website</p>
-              <p className="font-medium">www.thebigvoiceltd.com</p>
+              <p className="font-medium">thebigvoicelimited.co.ke</p>
             </div>
           </a>
           <a href="https://instagram.com/thebigvoiceltd" className={cardClass}>

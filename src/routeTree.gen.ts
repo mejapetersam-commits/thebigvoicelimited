@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesEventSoundRouteImport } from './routes/services.event-sound'
 import { Route as ServicesPodcastProductionRouteImport } from './routes/services.podcast-production'
@@ -30,6 +32,16 @@ const AboutRoute = AboutRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -58,18 +70,22 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/event-sound': typeof ServicesEventSoundRoute
   '/services/podcast-production': typeof ServicesPodcastProductionRoute
   '/services/voice-audio': typeof ServicesVoiceAudioRoute
+  '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/event-sound': typeof ServicesEventSoundRoute
   '/services/podcast-production': typeof ServicesPodcastProductionRoute
   '/services/voice-audio': typeof ServicesVoiceAudioRoute
+  '/blog': typeof BlogIndexRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
@@ -77,9 +93,11 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/event-sound': typeof ServicesEventSoundRoute
   '/services/podcast-production': typeof ServicesPodcastProductionRoute
   '/services/voice-audio': typeof ServicesVoiceAudioRoute
+  '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -88,27 +106,33 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/blog/$slug'
     | '/services/event-sound'
     | '/services/podcast-production'
     | '/services/voice-audio'
+    | '/blog/'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
+    | '/blog/$slug'
     | '/services/event-sound'
     | '/services/podcast-production'
     | '/services/voice-audio'
+    | '/blog'
     | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
+    | '/blog/$slug'
     | '/services/event-sound'
     | '/services/podcast-production'
     | '/services/voice-audio'
+    | '/blog/'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
@@ -116,9 +140,11 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   ServicesEventSoundRoute: typeof ServicesEventSoundRoute
   ServicesPodcastProductionRoute: typeof ServicesPodcastProductionRoute
   ServicesVoiceAudioRoute: typeof ServicesVoiceAudioRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
@@ -143,6 +169,20 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -180,9 +220,11 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  BlogSlugRoute: BlogSlugRoute,
   ServicesEventSoundRoute: ServicesEventSoundRoute,
   ServicesPodcastProductionRoute: ServicesPodcastProductionRoute,
   ServicesVoiceAudioRoute: ServicesVoiceAudioRoute,
+  BlogIndexRoute: BlogIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport

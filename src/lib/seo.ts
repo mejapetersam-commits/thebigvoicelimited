@@ -8,6 +8,9 @@ export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 export const PHONE_E164 = "+254717003755";
 export const EMAIL = "thebigvoicelimited@gmail.com";
 
+/** Google Analytics 4 Measurement ID (looks like "G-XXXXXXXXXX"). Leave empty to keep analytics off. */
+export const GA_MEASUREMENT_ID: string = "";
+
 type PageSeo = { path: string; title: string; description: string };
 
 /** Title, description, social tags and canonical URL for a page. */
@@ -80,5 +83,21 @@ export function faqSchema(items: { q: string; a: string }[]) {
       name: i.q,
       acceptedAnswer: { "@type": "Answer", text: i.a },
     })),
+  };
+}
+
+export function blogPostSchema(p: { slug: string; title: string; description: string; date: string }) {
+  const url = `${SITE_URL}/blog/${p.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: p.title,
+    description: p.description,
+    datePublished: p.date,
+    dateModified: p.date,
+    image: OG_IMAGE,
+    mainEntityOfPage: url,
+    author: { "@type": "Organization", name: SITE_NAME },
+    publisher: { "@id": `${SITE_URL}/#business` },
   };
 }
