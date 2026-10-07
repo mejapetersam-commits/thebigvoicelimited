@@ -91,11 +91,37 @@ export function SiteHeader() {
 }
 
 export function SiteFooter() {
+  const col = "text-sm text-neutral-400 hover:text-amber-400 transition";
   return (
-    <footer className="border-t border-white/5 py-10">
-      <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-500">
-        <p>© {new Date().getFullYear()} The Big Voice Ltd. All rights reserved.</p>
-        <p>Voice · Sound · Podcasts</p>
+    <footer className="border-t border-white/5 py-14">
+      <div className="max-w-7xl mx-auto px-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 text-sm">
+        <div>
+          <p className="font-semibold tracking-wide text-neutral-100">
+            THE BIG VOICE <span className="text-amber-400">LTD</span>
+          </p>
+          <p className="mt-3 text-neutral-400">Voice, sound and podcast production. Nairobi, Kenya.</p>
+        </div>
+        <div className="flex flex-col gap-2">
+          <p className="text-neutral-200 font-medium mb-1">Services</p>
+          <Link to="/services/voice-audio" className={col}>Voice & Audio Production</Link>
+          <Link to="/services/event-sound" className={col}>Event & Sound Experience</Link>
+          <Link to="/services/podcast-production" className={col}>Podcast Production</Link>
+        </div>
+        <div className="flex flex-col gap-2">
+          <p className="text-neutral-200 font-medium mb-1">Company</p>
+          <Link to="/" className={col}>Home</Link>
+          <Link to="/about" className={col}>About</Link>
+          <Link to="/contact" className={col}>Contact</Link>
+        </div>
+        <div className="flex flex-col gap-2">
+          <p className="text-neutral-200 font-medium mb-1">Contact</p>
+          <a href="tel:+254717003755" className={col}>+254 717 003 755</a>
+          <a href="mailto:thebigvoicelimited@gmail.com" className={col + " break-all"}>thebigvoicelimited@gmail.com</a>
+          <a href="https://instagram.com/thebigvoiceltd" className={col}>@thebigvoiceltd</a>
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/5 text-xs text-neutral-500">
+        © {new Date().getFullYear()} The Big Voice Ltd. All rights reserved.
       </div>
     </footer>
   );

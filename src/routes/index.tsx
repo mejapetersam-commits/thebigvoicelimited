@@ -7,8 +7,16 @@ import blazeLogo from "@/assets/clients/blaze.png";
 import maybetsLogo from "@/assets/clients/maybets.jpg";
 import startimesLogo from "@/assets/clients/startimes.png";
 import { services } from "@/lib/services-data";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
+  head: () =>
+    seo({
+      path: "/",
+      title: "Voice Over, Event Sound & Podcasts in Nairobi | The Big Voice Ltd",
+      description:
+        "The Big Voice Ltd is a Nairobi audio production company: voice over and advertising audio, event sound and MC services, and podcast production for brands across Kenya.",
+    }),
   component: Index,
 });
 
@@ -29,7 +37,8 @@ function Index() {
           src={hero}
           alt="Studio microphone with audio waveform"
           width={1920}
-          height={1280}
+          height={1080}
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover opacity-50"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/70 via-neutral-950/60 to-neutral-950" />

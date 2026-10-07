@@ -1,15 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — The Big Voice Ltd" },
-      { name: "description", content: "The Big Voice Ltd partners with brands, organisations and creators to turn ideas into audio that performs." },
-      { property: "og:title", content: "About — The Big Voice Ltd" },
-      { property: "og:description", content: "Our vision, mission and the problems we solve for brands." },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/about",
+      title: "About The Big Voice Ltd | Audio Production Company, Nairobi",
+      description:
+        "The Big Voice Ltd partners with brands, organisations and creators in Kenya to turn ideas into voice, sound and podcast audio that is heard, understood and remembered.",
+    }),
   component: AboutPage,
 });
 

@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesEventSoundRouteImport } from './routes/services.event-sound'
+import { Route as ServicesPodcastProductionRouteImport } from './routes/services.podcast-production'
 import { Route as ServicesVoiceAudioRouteImport } from './routes/services.voice-audio'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +42,12 @@ const ServicesEventSoundRoute = ServicesEventSoundRouteImport.update({
   path: '/services/event-sound',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesPodcastProductionRoute =
+  ServicesPodcastProductionRouteImport.update({
+    id: '/services/podcast-production',
+    path: '/services/podcast-production',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ServicesVoiceAudioRoute = ServicesVoiceAudioRouteImport.update({
   id: '/services/voice-audio',
   path: '/services/voice-audio',
@@ -52,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/services/event-sound': typeof ServicesEventSoundRoute
+  '/services/podcast-production': typeof ServicesPodcastProductionRoute
   '/services/voice-audio': typeof ServicesVoiceAudioRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -60,6 +68,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/services/event-sound': typeof ServicesEventSoundRoute
+  '/services/podcast-production': typeof ServicesPodcastProductionRoute
   '/services/voice-audio': typeof ServicesVoiceAudioRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -69,6 +78,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/services/event-sound': typeof ServicesEventSoundRoute
+  '/services/podcast-production': typeof ServicesPodcastProductionRoute
   '/services/voice-audio': typeof ServicesVoiceAudioRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -79,6 +89,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/services/event-sound'
+    | '/services/podcast-production'
     | '/services/voice-audio'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +98,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/services/event-sound'
+    | '/services/podcast-production'
     | '/services/voice-audio'
     | '/services'
   id:
@@ -95,6 +107,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/services/event-sound'
+    | '/services/podcast-production'
     | '/services/voice-audio'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -104,6 +117,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   ServicesEventSoundRoute: typeof ServicesEventSoundRoute
+  ServicesPodcastProductionRoute: typeof ServicesPodcastProductionRoute
   ServicesVoiceAudioRoute: typeof ServicesVoiceAudioRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
@@ -145,6 +159,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesEventSoundRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/podcast-production': {
+      id: '/services/podcast-production'
+      path: '/services/podcast-production'
+      fullPath: '/services/podcast-production'
+      preLoaderRoute: typeof ServicesPodcastProductionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/voice-audio': {
       id: '/services/voice-audio'
       path: '/services/voice-audio'
@@ -160,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   ServicesEventSoundRoute: ServicesEventSoundRoute,
+  ServicesPodcastProductionRoute: ServicesPodcastProductionRoute,
   ServicesVoiceAudioRoute: ServicesVoiceAudioRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }

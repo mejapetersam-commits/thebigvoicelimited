@@ -3,7 +3,10 @@ import consoleImg from "@/assets/console.jpg";
 import eventImg from "@/assets/event.jpg";
 import podcastImg from "@/assets/podcast.jpg";
 
-export type ServiceHref = "/services/voice-audio" | "/services/event-sound";
+export type ServiceHref =
+  | "/services/voice-audio"
+  | "/services/event-sound"
+  | "/services/podcast-production";
 
 export type Service = {
   icon: typeof Mic;
@@ -51,6 +54,7 @@ export const services: Service[] = [
       "Editing & sound design",
       "Content structuring & guidance",
     ],
+    href: "/services/podcast-production",
   },
 ];
 

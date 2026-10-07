@@ -12,6 +12,7 @@ import {
 import appCss from "../styles.css?url";
 import { SalChatWidget } from "@/components/SalChatWidget";
 import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
+import { OG_IMAGE, businessSchema, jsonLd } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -75,21 +76,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#0a0a0a" },
       { title: "The Big Voice Ltd — Voice, Sound & Podcast Production" },
       { name: "description", content: "The Big Voice Ltd is a Kenyan audio production company crafting voiceovers, event sound and podcasts that make brands heard, understood and remembered." },
       { name: "author", content: "The Big Voice Ltd" },
-      { property: "og:title", content: "The Big Voice Ltd — Voice, Sound & Podcast Production" },
-      { property: "og:description", content: "Voice & audio production, event sound and podcast production for brands across Africa." },
+      { property: "og:site_name", content: "The Big Voice Ltd" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:locale", content: "en_KE" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
+    scripts: [jsonLd(businessSchema)],
   }),
   shellComponent: RootShell,
   component: RootComponent,

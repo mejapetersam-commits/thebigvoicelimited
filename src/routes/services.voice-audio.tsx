@@ -1,14 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Mic } from "lucide-react";
 import { adWork } from "@/lib/ad-work";
+import { seo, jsonLd, serviceSchema } from "@/lib/seo";
+import { CONTACT } from "@/lib/services-data";
 
 export const Route = createFileRoute("/services/voice-audio")({
   head: () => ({
-    meta: [
-      { title: "Voice & Audio Production — The Big Voice Ltd" },
-      { name: "description", content: "Selected voice and audio advertising work produced by The Big Voice Ltd — Samsung, Britam, StarTimes, Maybets, Kibao and Mobimba." },
-      { property: "og:title", content: "Voice & Audio Production — The Big Voice Ltd" },
-      { property: "og:description", content: "Listen to selected ads, station idents and brand spots we've voiced and produced." },
+    ...seo({
+      path: "/services/voice-audio",
+      title: "Voice Over & Audio Production in Nairobi | The Big Voice Ltd",
+      description:
+        "Voice over and audio production in Nairobi for adverts, corporate communication, e-learning and documentaries. Listen to work for Samsung, Britam, StarTimes and more.",
+    }),
+    scripts: [
+      jsonLd(
+        serviceSchema(
+          "Voice & Audio Production",
+          "Voice over and audio production for advertising, corporate communication, e-learning and documentaries.",
+          "/services/voice-audio",
+        ),
+      ),
     ],
   }),
   component: VoiceAudioPage,
@@ -68,6 +79,23 @@ function VoiceAudioPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 border-t border-white/5">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold">Voice over and audio production in Nairobi</h2>
+          <p className="mt-5 text-neutral-300 leading-relaxed">
+            The Big Voice Ltd produces voiceovers and audio for brands, organisations and creators across Kenya. We handle the voice, the recording and the final mix, so your message sounds clear and professional.
+          </p>
+          <ul className="mt-6 grid sm:grid-cols-2 gap-3 text-neutral-200">
+            {["Advertising & commercials", "Corporate communication", "E-learning & training programs", "Documentaries & digital media"].map((i) => (
+              <li key={i} className="flex gap-3"><span className="mt-2 size-1.5 rounded-full bg-amber-400 shrink-0" />{i}</li>
+            ))}
+          </ul>
+          <a href={CONTACT.phoneHref} className="mt-8 inline-flex items-center rounded-full bg-amber-500 text-neutral-950 px-6 py-3 font-medium hover:bg-amber-400 transition">
+            Call {CONTACT.phone}
+          </a>
         </div>
       </section>
     </>

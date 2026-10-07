@@ -1,16 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { services } from "@/lib/services-data";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/services/")({
-  head: () => ({
-    meta: [
-      { title: "Services — The Big Voice Ltd" },
-      { name: "description", content: "Voice & audio production, event sound and podcast production from The Big Voice Ltd, Nairobi." },
-      { property: "og:title", content: "Services — The Big Voice Ltd" },
-      { property: "og:description", content: "Voice & audio production, event sound and podcast production." },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/services",
+      title: "Audio, Event Sound & Podcast Services in Nairobi | The Big Voice Ltd",
+      description:
+        "Voice over and audio production, event sound and MC services, and podcast production from The Big Voice Ltd in Nairobi, Kenya.",
+    }),
   component: ServicesPage,
 });
 

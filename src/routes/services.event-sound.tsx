@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import eventImg from "@/assets/event.jpg";
 import { CONTACT } from "@/lib/services-data";
+import { faqSchema, jsonLd, seo, serviceSchema } from "@/lib/seo";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
   Dialog,
   DialogContent,
@@ -21,18 +23,21 @@ import {
 
 export const Route = createFileRoute("/services/event-sound")({
   head: () => ({
-    meta: [
-      { title: "Event & Sound Experience — The Big Voice Ltd" },
-      {
-        name: "description",
-        content:
-          "Professional sound, production and event support built around your event. Weddings, corporate events, conferences and celebrations across Kenya.",
-      },
-      { property: "og:title", content: "Event & Sound Experience — The Big Voice Ltd" },
-      {
-        property: "og:description",
-        content: "Sound, production, MC and hosting built around your event. Request a quote.",
-      },
+    ...seo({
+      path: "/services/event-sound",
+      title: "Event Sound, PA System & MC Services in Nairobi | The Big Voice Ltd",
+      description:
+        "PA system, sound technicians, MC and event production in Nairobi for weddings, ruracio, conferences and corporate events. Choose a package and call for a quote.",
+    }),
+    scripts: [
+      jsonLd(
+        serviceSchema(
+          "Event & Sound Experience",
+          "Event sound, PA systems, technical production, MC and hosting for weddings, corporate events and celebrations.",
+          "/services/event-sound",
+        ),
+      ),
+      jsonLd(faqSchema(faqs)),
     ],
   }),
   component: EventSoundPage,
@@ -125,6 +130,34 @@ const steps = [
   { title: "You Experience", text: "You focus on your event. We handle the technical execution." },
 ];
 
+
+const faqs = [
+  {
+    q: "How much does event sound cost in Nairobi?",
+    a: "It depends on your venue, guest count and programme, so we quote each event individually. Call 0717 003 755 with the basics and we'll put together a quote.",
+  },
+  {
+    q: "What size sound system do I need for my event?",
+    a: "As a guide, Essential Sound suits 50–100 guests, Complete Event Sound suits 100–200 and Enhanced Event Production suits 200–400. For larger or more complex events we build a custom solution.",
+  },
+  {
+    q: "Do you provide a sound technician?",
+    a: "Yes. Our packages include a sound technician or technical crew, and the Corporate package adds a technical operator.",
+  },
+  {
+    q: "Can you provide an MC, DJ or livestreaming?",
+    a: "Yes. MC, DJ, livestreaming, lighting, LED screens, projectors, photography and videography are available as add-ons.",
+  },
+  {
+    q: "Do you do weddings and ruracio?",
+    a: "Yes. Complete Event Sound is designed for weddings, ruracio and medium-sized events, and we also provide event hosting and MC services for social events.",
+  },
+  {
+    q: "Where are you based?",
+    a: "We're based in Nairobi. Call us to confirm availability for your venue and date.",
+  },
+];
+
 const primaryBtn =
   "inline-flex items-center justify-center gap-2 rounded-full bg-amber-500 text-neutral-950 px-6 py-3 font-medium hover:bg-amber-400 transition";
 const ghostBtn =
@@ -153,7 +186,7 @@ function EventSoundPage() {
             Professional sound, production and event support built around your event.
           </p>
           <p className="mt-5 max-w-2xl text-lg text-neutral-300">
-            From intimate gatherings to corporate events and larger celebrations, Big Voice brings together the sound, people and technical production required to deliver a seamless experience.
+            From intimate gatherings to corporate events and larger celebrations, Big Voice brings together the sound, people and technical production required to deliver a seamless experience. Based in Nairobi.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link to="/contact" className={primaryBtn}>
@@ -293,6 +326,21 @@ function EventSoundPage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-24 border-t border-white/5">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold">Common questions</h2>
+          <Accordion type="single" collapsible className="mt-8">
+            {faqs.map((f, i) => (
+              <AccordionItem key={f.q} value={`faq-${i}`} className="border-white/10">
+                <AccordionTrigger className="text-left text-base sm:text-lg hover:no-underline">{f.q}</AccordionTrigger>
+                <AccordionContent className="text-neutral-300 leading-relaxed">{f.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 
