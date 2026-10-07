@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mic } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+import consoleImg from "@/assets/console.jpg";
 import { adWork } from "@/lib/ad-work";
 import { seo, jsonLd, serviceSchema } from "@/lib/seo";
 import { CONTACT } from "@/lib/services-data";
@@ -28,26 +29,39 @@ export const Route = createFileRoute("/services/voice-audio")({
 function VoiceAudioPage() {
   return (
     <>
-      <section className="pt-32 pb-12 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="inline-flex size-10 items-center justify-center rounded-full bg-amber-500/15 text-amber-400">
-              <Mic className="size-5" />
-            </span>
-            <p className="uppercase tracking-[0.3em] text-xs text-amber-400">Voice & Audio Production</p>
-          </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] max-w-4xl">
-            Adverts we've <span className="text-amber-400">voiced</span> and produced.
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <img
+          src={consoleImg}
+          alt="Audio mixing console in a recording studio"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/70 via-neutral-950/60 to-neutral-950" />
+        <div className="relative max-w-7xl mx-auto px-6 pt-32 pb-20">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] max-w-4xl">
+            Voice &amp; Audio Production
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-neutral-300">
-            A selection of campaigns, station idents and brand spots, from corporate communications to high-energy commercials.
+          <p className="mt-6 max-w-2xl text-xl sm:text-2xl text-amber-400 font-medium">
+            Adverts we've voiced and produced.
           </p>
+          <p className="mt-5 max-w-2xl text-lg text-neutral-300">
+            A selection of campaigns, station idents and brand spots, from corporate communications to high-energy commercials. Based in Nairobi.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <a href="#work" className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-500 text-neutral-950 px-6 py-3 font-medium hover:bg-amber-400 transition">
+              Listen to Our Work <ArrowDown className="size-4" />
+            </a>
+            <a href={CONTACT.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 font-medium hover:bg-white/5 transition">
+              Call {CONTACT.phone}
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="py-16">
+      <section id="work" className="py-24 border-t border-white/5 scroll-mt-16">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-3xl sm:text-4xl font-bold">Selected work</h2>
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {adWork.map(ad => (
               <article key={ad.brand + ad.title} className="group rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] hover:border-amber-500/40 transition">
                 {ad.type === "video" ? (
