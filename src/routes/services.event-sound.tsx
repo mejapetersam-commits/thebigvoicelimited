@@ -10,7 +10,7 @@ import {
   Speaker,
 } from "lucide-react";
 import eventImg from "@/assets/event.jpg";
-import { CONTACT, quoteHref } from "@/lib/services-data";
+import { CONTACT } from "@/lib/services-data";
 import {
   Dialog,
   DialogContent,
@@ -221,7 +221,7 @@ function EventSoundPage() {
                 {p.guests && <p className="mt-1 font-medium text-neutral-100">{p.guests}</p>}
                 <p className="mt-5 text-sm text-neutral-400 leading-relaxed">{p.inclusions.join(" · ")}</p>
                 <div className="mt-auto pt-7 flex flex-wrap items-center gap-3">
-                  <a href={quoteHref(`Quote request: ${p.name} (${p.tier})`)} className={primaryBtn + " !px-5 !py-2.5 text-sm"}>
+                  <a href={CONTACT.phoneHref} className={primaryBtn + " !px-5 !py-2.5 text-sm"}>
                     {p.cta}
                   </a>
                   <button
@@ -251,7 +251,7 @@ function EventSoundPage() {
                 ))}
               </ol>
               <div className="mt-auto pt-7">
-                <a href={quoteHref("Custom event solution")} className={primaryBtn + " !px-5 !py-2.5 text-sm"}>
+                <a href={CONTACT.phoneHref} className={primaryBtn + " !px-5 !py-2.5 text-sm"}>
                   Build My Solution
                 </a>
               </div>
@@ -271,7 +271,7 @@ function EventSoundPage() {
               </li>
             ))}
           </ul>
-          <a href={quoteHref("Event add-ons enquiry")} className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-amber-400 hover:gap-3 transition-all">
+          <a href={CONTACT.phoneHref} className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-amber-400 hover:gap-3 transition-all">
             Ask About Add-ons <ArrowRight className="size-4" />
           </a>
         </div>
@@ -335,9 +335,9 @@ function EventSoundPage() {
                 ))}
               </ul>
               <p className="text-sm text-neutral-400">
-                Final equipment and crew are confirmed in your quote, based on your venue, programme and guest count.
+                Final equipment and crew are confirmed in your quote, based on your venue, programme and guest count. Call {CONTACT.phone} to get yours.
               </p>
-              <a href={quoteHref(`Quote request: ${selected.name} (${selected.tier})`)} className={primaryBtn}>
+              <a href={CONTACT.phoneHref} className={primaryBtn}>
                 {selected.cta}
               </a>
             </>

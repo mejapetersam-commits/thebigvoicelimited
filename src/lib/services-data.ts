@@ -59,9 +59,3 @@ export const CONTACT = {
   phoneHref: "tel:+254717003755",
   email: "thebigvoicelimited@gmail.com",
 };
-
-/** Opens an email pre-filled with a subject and a short brief template. */
-export const quoteHref = (subject: string) =>
-  `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-    "Hi Big Voice,\n\nEvent type:\nDate:\nVenue:\nExpected guests:\n\nAnything else we should know:\n",
-  )}`;
