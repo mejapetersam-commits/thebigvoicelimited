@@ -11,6 +11,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { SalChatWidget } from "@/components/SalChatWidget";
+import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
 
 function NotFoundComponent() {
   return (
@@ -115,7 +116,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="min-h-screen flex flex-col bg-neutral-950 text-neutral-100 font-sans antialiased selection:bg-amber-500/30">
+        <SiteHeader />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <SiteFooter />
+      </div>
       <SalChatWidget />
     </QueryClientProvider>
   );

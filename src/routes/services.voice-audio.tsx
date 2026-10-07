@@ -1,7 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Mic } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Mic } from "lucide-react";
 import { adWork } from "@/lib/ad-work";
-import logo from "@/assets/logo.jpg";
 
 export const Route = createFileRoute("/services/voice-audio")({
   head: () => ({
@@ -17,21 +16,7 @@ export const Route = createFileRoute("/services/voice-audio")({
 
 function VoiceAudioPage() {
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans antialiased selection:bg-amber-500/30">
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-neutral-950/70 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="The Big Voice Ltd" className="h-9 w-9 rounded-full object-cover ring-1 ring-amber-500/40" />
-            <span className="font-semibold tracking-wide text-sm sm:text-base">
-              THE BIG VOICE <span className="text-amber-400">LTD</span>
-            </span>
-          </Link>
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-neutral-300 hover:text-amber-400 transition">
-            <ArrowLeft className="size-4" /> Back to home
-          </Link>
-        </div>
-      </header>
-
+    <>
       <section className="pt-32 pb-12 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-3 mb-6">
@@ -85,6 +70,6 @@ function VoiceAudioPage() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

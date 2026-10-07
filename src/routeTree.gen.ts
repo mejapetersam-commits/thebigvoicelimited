@@ -10,11 +10,35 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesEventSoundRouteImport } from './routes/services.event-sound'
 import { Route as ServicesVoiceAudioRouteImport } from './routes/services.voice-audio'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesEventSoundRoute = ServicesEventSoundRouteImport.update({
+  id: '/services/event-sound',
+  path: '/services/event-sound',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesVoiceAudioRoute = ServicesVoiceAudioRouteImport.update({
@@ -25,28 +49,63 @@ const ServicesVoiceAudioRoute = ServicesVoiceAudioRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/services/event-sound': typeof ServicesEventSoundRoute
   '/services/voice-audio': typeof ServicesVoiceAudioRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/services/event-sound': typeof ServicesEventSoundRoute
   '/services/voice-audio': typeof ServicesVoiceAudioRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/services/event-sound': typeof ServicesEventSoundRoute
   '/services/voice-audio': typeof ServicesVoiceAudioRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/services/voice-audio'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services/event-sound'
+    | '/services/voice-audio'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/services/voice-audio'
-  id: '__root__' | '/' | '/services/voice-audio'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services/event-sound'
+    | '/services/voice-audio'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services/event-sound'
+    | '/services/voice-audio'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  ServicesEventSoundRoute: typeof ServicesEventSoundRoute
   ServicesVoiceAudioRoute: typeof ServicesVoiceAudioRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -56,6 +115,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/event-sound': {
+      id: '/services/event-sound'
+      path: '/services/event-sound'
+      fullPath: '/services/event-sound'
+      preLoaderRoute: typeof ServicesEventSoundRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/voice-audio': {
@@ -70,7 +157,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  ServicesEventSoundRoute: ServicesEventSoundRoute,
   ServicesVoiceAudioRoute: ServicesVoiceAudioRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
