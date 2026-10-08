@@ -117,7 +117,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-2">
           <p className="text-neutral-200 font-medium mb-1">Contact</p>
           <a href="tel:+254717003755" className={col}>+254 717 003 755</a>
-          <a href="mailto:thebigvoicelimited@gmail.com" className={col + " break-all"}>thebigvoicelimited@gmail.com</a>
+          <a href="mailto:info@thebigvoicelimited.co.ke" className={col + " break-all"}>info@thebigvoicelimited.co.ke</a>
           <a href="https://instagram.com/thebigvoiceltd" className={col}>@thebigvoiceltd</a>
         </div>
       </div>

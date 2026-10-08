@@ -61,5 +61,5 @@ export const services: Service[] = [
 export const CONTACT = {
   phone: "+254 717 003 755",
   phoneHref: "tel:+254717003755",
-  email: "thebigvoicelimited@gmail.com",
+  email: "info@thebigvoicelimited.co.ke",
 };

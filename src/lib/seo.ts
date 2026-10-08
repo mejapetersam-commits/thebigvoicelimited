@@ -6,7 +6,7 @@ export const SITE_URL = "https://thebigvoicelimited.co.ke";
 export const SITE_NAME = "The Big Voice Ltd";
 export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 export const PHONE_E164 = "+254717003755";
-export const EMAIL = "thebigvoicelimited@gmail.com";
+export const EMAIL = "info@thebigvoicelimited.co.ke";
 
 /** Google Analytics 4 Measurement ID (looks like "G-XXXXXXXXXX"). Leave empty to keep analytics off. */
 export const GA_MEASUREMENT_ID: string = "";

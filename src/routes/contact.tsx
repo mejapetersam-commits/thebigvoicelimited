@@ -29,11 +29,11 @@ function ContactPage() {
               <p className="font-medium">+254 717 003 755</p>
             </div>
           </a>
-          <a href="mailto:thebigvoicelimited@gmail.com" className={cardClass}>
+          <a href="mailto:info@thebigvoicelimited.co.ke" className={cardClass}>
             <Mail className="size-5 text-amber-400" />
             <div>
               <p className="text-xs text-neutral-400">Email</p>
-              <p className="font-medium break-all">thebigvoicelimited@gmail.com</p>
+              <p className="font-medium break-all">info@thebigvoicelimited.co.ke</p>
             </div>
           </a>
           <a href="https://thebigvoicelimited.co.ke" className={cardClass}>
